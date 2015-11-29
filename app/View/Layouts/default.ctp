@@ -3,7 +3,11 @@
 <head>
     <?php echo $this->Html->charset(); ?>
     <title>
+        <?php if (isset($title)): ?>
         Lost Objects - <?php echo $title; ?>
+        <?php else: ?>
+        Lost Objects
+        <?php endif; ?>
     </title>
     <?php
         echo $this->Html->meta('icon');
