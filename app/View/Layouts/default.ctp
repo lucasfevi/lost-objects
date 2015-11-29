@@ -3,7 +3,7 @@
 <head>
     <?php echo $this->Html->charset(); ?>
     <title>
-        <?php echo $this->fetch('title'); ?>
+        Lost Objects - <?php echo $title; ?>
     </title>
     <?php
         echo $this->Html->meta('icon');

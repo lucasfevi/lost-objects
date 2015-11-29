@@ -11,6 +11,6 @@ class PagesController extends AppController
 
 	public function home()
 	{
-
+		$this->set('title', 'Home');
 	}
 }
