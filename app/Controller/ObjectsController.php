@@ -43,4 +43,17 @@ class ObjectsController extends AppController
         $this->set('categories', $this->Objects->getCategories());
 		$this->set('title', 'Edit object');
     }
+
+    public function delete($id = null)
+    {
+        $this->Objects->id = $id;
+
+        if (!$this->Objects->exists()) {
+            throw new NotFoundException(__('Invalid object'));
+        }
+
+        $this->Objects->delete();
+
+        return $this->redirect(array('controller' => 'users', 'action' => 'view', 'userId' => CakeSession::read('Auth.User.id')));
+    }
 }

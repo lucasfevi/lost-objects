@@ -72,5 +72,13 @@ echo $this->Html->script('add-objects');
             </div>
         </div>
     </fieldset>
+    <fieldset>
+        <legend>Remove Object</legend>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-6">
+                 <a href="<?php echo $this->Html->url(array('action' => 'delete', $this->data['Objects']['id'])); ?>" class="btn btn-danger">Remove</a>
+            </div>
+        </div>
+    </fieldset>
 </form>
 <script src="https://maps.googleapis.com/maps/api/js?signed_in=true&callback=initMap" async defer></script>
