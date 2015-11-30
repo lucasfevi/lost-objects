@@ -3,7 +3,7 @@ echo $this->Html->script('add-objects');
 ?>
 <form method="post" class="form-horizontal">
     <fieldset>
-        <legend>Add Object</legend>
+        <legend>Edit Object</legend>
         <?php if (isset($errors)): ?>
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-6">
@@ -20,37 +20,34 @@ echo $this->Html->script('add-objects');
         <div class="form-group">
             <label for="objectName" class="col-sm-2 control-label">Name:</label>
             <div class="col-sm-6">
-                <input type="text" class="form-control" id="objectName" name="data[Objects][name]" value="<?php if (isset($this->data['Objects']['name'])) echo $this->data['Objects']['name']; ?>">
+                <input type="text" class="form-control" id="objectName" name="data[Objects][name]">
             </div>
         </div>
         <div class="form-group">
             <label for="objectDescription" class="col-sm-2 control-label">Description:</label>
             <div class="col-sm-6">
-                <textarea class="form-control" id="objectDescription" name="data[Objects][description]"><?php if (isset($this->data['Objects']['name'])) echo $this->data['Objects']['name']; ?></textarea>
+                <textarea class="form-control" id="objectDescription" name="data[Objects][description]"></textarea>
             </div>
         </div>
         <div class="form-group">
             <label for="objectCategory" class="col-sm-2 control-label">Category:</label>
             <div class="col-sm-6">
-                <?php echo $this->Form->input('category_id', array(
-                    'type'     => 'select',
-                    'label'    => false,
-                    'name'     => 'data[Objects][category_id]',
-                    'class'    => 'form-control',
-                    'id'       => 'objectCategory',
-                    'options'  => $categories,
-                    'empty'    => '(choose one)',
-                    'selected' => (isset($this->data['Objects']['category_id'])) ? $this->data['Objects']['category_id'] : ''
-                )); ?>
+                <select class="form-control" id="objectCategory" name="data[Objects][category_id]">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                </select>
             </div>
         </div>
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-6">
                 <label class="radio-inline">
-                    <input type="radio" name="data[Objects][type]" value="found" <?php if (isset($this->data['Objects']['type']) && $this->data['Objects']['type'] == 'found') echo 'checked'; ?>> Found
+                    <input type="radio" name="data[Objects][type]" value="found"> Found
                 </label>
                 <label class="radio-inline">
-                    <input type="radio" name="data[Objects][type]" value="lost" <?php if (isset($this->data['Objects']['type']) && $this->data['Objects']['type'] == 'lost') echo 'checked'; ?>> Lost
+                    <input type="radio" name="data[Objects][type]" value="lost"> Lost
                 </label>
             </div>
         </div>
@@ -62,8 +59,8 @@ echo $this->Html->script('add-objects');
                     <button id="btnAddress" type="button" class="btn btn-default btn-xs">Go</button>
                 </div>
                 <div id="map" style="height: 300px;"></div>
-                <input type="hidden" name="data[Objects][latitude]" id="lat" value="<?php echo (isset($this->data['Objects']['latitude'])) ? $this->data['Objects']['latitude'] : '40.51396228669715'; ?>">
-                <input type="hidden" name="data[Objects][longitude]" id="lng" value="<?php echo (isset($this->data['Objects']['longitude'])) ? $this->data['Objects']['longitude'] : '-88.99067401885986'; ?>">
+                <input type="hidden" name="data[Objects][latitude]" id="lat" value="40.51396228669715">
+                <input type="hidden" name="data[Objects][longitude]" id="lng" value="-88.99067401885986">
             </div>
         </div>
         <div class="form-group">

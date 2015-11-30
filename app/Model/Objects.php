@@ -36,7 +36,8 @@ class Objects extends AppModel
 	);
 
 	public $belongsTo = array(
-		'User'
+		'User',
+		'Category'
 	);
 
     public function beforeValidate($options = array())
@@ -48,5 +49,10 @@ class Objects extends AppModel
         if (!isset($this->data[$this->alias]['user_id'])) {
             $this->data[$this->alias]['user_id'] = CakeSession::read('Auth.User.id');
         }
+    }
+
+    public function getCategories()
+    {
+    	return $this->Category->find('list');
     }
 }

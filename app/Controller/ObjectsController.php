@@ -18,6 +18,28 @@ class ObjectsController extends AppController
             $this->set('errors', $this->Objects->validationErrors);
         }
 
+        $this->set('categories', $this->Objects->getCategories());
 		$this->set('title', 'Add object found or lost');
 	}
+
+	public function edit($id = null)
+    {
+        $this->Objects->id = $id;
+
+        if (!$this->Objects->exists()) {
+            throw new NotFoundException(__('Invalid object'));
+        }
+
+        if ($this->request->is('post') || $this->request->is('put')) {
+            if ($this->Objects->save($this->request->data)) {
+                return $this->redirect(array('controller' => 'users', 'action' => 'view', 'userId' => CakeSession::read('Auth.User.id')));
+            }
+
+            $this->set('errors', $this->Objects->validationErrors);
+        } else {
+            $this->request->data = $this->Objects->findById($id);
+        }
+
+		$this->set('title', 'Edit object');
+    }
 }

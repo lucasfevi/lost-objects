@@ -1,5 +1,5 @@
 function initMap() {
-  var normalIllinois = { lat: 40.51396228669715, lng: -88.99067401885986 };
+  var normalIllinois = { lat: parseFloat(document.getElementById('lat').value), lng: parseFloat(document.getElementById('lng').value) };
   var geocoder = new google.maps.Geocoder();
   var map = new google.maps.Map(document.getElementById('map'), {
     zoom: 15,
