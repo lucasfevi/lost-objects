@@ -19,7 +19,8 @@
                             <?php if (!empty($lost_objects)): ?>
                                 <?php foreach ($lost_objects as $key => $object): ?>
                                 <p>
-                                    <strong><?php echo $object['Objects']['name']; ?></strong><br/>
+                                    <strong><?php echo $object['Objects']['name']; ?></strong>
+                                    <a href="<?php echo $this->Html->url(array('controller' => 'objects', 'action' => 'edit', $object['Objects']['id'])); ?>"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a><br/>
                                     <?php echo mb_strimwidth($object['Objects']['description'], 0, 200, '...'); ?>
                                 </p>
                                 <hr>
@@ -36,7 +37,8 @@
                             <?php if (!empty($found_objects)): ?>
                                 <?php foreach ($found_objects as $key => $object): ?>
                                 <p>
-                                    <strong><?php echo $object['Objects']['name']; ?></strong><br/>
+                                    <strong><?php echo $object['Objects']['name']; ?></strong>
+                                    <a href="<?php echo $this->Html->url(array('controller' => 'objects', 'action' => 'edit', $object['Objects']['id'])); ?>"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a><br/>
                                     <?php echo mb_strimwidth($object['Objects']['description'], 0, 200, '...'); ?>
                                 </p>
                                 <hr>
