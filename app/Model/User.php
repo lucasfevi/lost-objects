@@ -55,6 +55,10 @@ class User extends AppModel
         )
     );
 
+    public $virtualFields = array(
+        'full_name' => 'TRIM(CONCAT(User.first_name, " ", User.last_name))'
+    );
+
     public function beforeValidate($options = array())
     {
         $this->data[$this->alias]['role'] = 'user';
