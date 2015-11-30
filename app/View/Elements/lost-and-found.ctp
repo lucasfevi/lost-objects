@@ -16,32 +16,34 @@
                 <div class="tab-pane active" id="panel-lost">
                     <div class="row" style="margin-top: 15px;">
                         <div class="col-md-8">
-                            <p>
-                                <strong>Lost Frisbee</strong><br/>
-                                I found a lost frisbee in the quad at ISU
-                            </p>
-                            <hr>
-                            <p>
-                                <strong>Lost Iphone</strong><br/>
-                                I found an Iphone by the bone student center
-                            </p>
-                            <hr>
+                            <?php if (!empty($lost_objects)): ?>
+                                <?php foreach ($lost_objects as $key => $object): ?>
+                                <p>
+                                    <strong><?php echo $object['Objects']['name']; ?></strong><br/>
+                                    <?php echo mb_strimwidth($object['Objects']['description'], 0, 200, '...'); ?>
+                                </p>
+                                <hr>
+                                <?php endforeach; ?>
+                            <?php else: ?>
+                            <p><strong>No object lost posted!</strong></p>
+                            <?php endif; ?>
                         </div>
                     </div>
                 </div>
                 <div class="tab-pane" id="panel-found">
                     <div class="row" style="margin-top: 15px;">
                         <div class="col-md-8">
-                            <p>
-                                <strong>Looking for a notebook</strong><br/>
-                                I lost my chemistry notebook in Anderson Park
-                            </p>
-                            <hr>
-                            <p>
-                                <strong>Laptop</strong><br/>
-                                My laptop was left in the old unioin on the first floor
-                            </p>
-                            <hr>
+                            <?php if (!empty($found_objects)): ?>
+                                <?php foreach ($found_objects as $key => $object): ?>
+                                <p>
+                                    <strong><?php echo $object['Objects']['name']; ?></strong><br/>
+                                    <?php echo mb_strimwidth($object['Objects']['description'], 0, 200, '...'); ?>
+                                </p>
+                                <hr>
+                                <?php endforeach; ?>
+                            <?php else: ?>
+                            <p><strong>No object found posted!</strong></p>
+                            <?php endif; ?>
                         </div>
                     </div>
                 </div>

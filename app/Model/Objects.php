@@ -35,6 +35,10 @@ class Objects extends AppModel
         )
 	);
 
+	public $belongsTo = array(
+		'User'
+	);
+
     public function beforeValidate($options = array())
     {
         if (!isset($this->data[$this->alias]['status'])) {

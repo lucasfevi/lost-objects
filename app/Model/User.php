@@ -55,6 +55,10 @@ class User extends AppModel
         )
     );
 
+    public $hasMany = array(
+        'Objects'
+    );
+
     public $virtualFields = array(
         'full_name' => 'TRIM(CONCAT(User.first_name, " ", User.last_name))'
     );
@@ -75,5 +79,25 @@ class User extends AppModel
         }
 
         return true;
+    }
+
+    public function getFoundObjects($userId = null)
+    {
+        return $this->Objects->find('all', array(
+            'conditions' => array(
+                'type'    => 'found',
+                'user_id' => $userId
+            )
+        ));
+    }
+
+    public function getLostObjects($userId = null)
+    {
+        return $this->Objects->find('all', array(
+            'conditions' => array(
+                'type'    => 'lost',
+                'user_id' => $userId
+            )
+        ));
     }
 }

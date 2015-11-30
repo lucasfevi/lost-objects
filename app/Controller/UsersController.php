@@ -36,6 +36,8 @@ class UsersController extends AppController
         }
 
         $this->set('user', $this->User->findById($userId));
+        $this->set('found_objects', $this->User->getFoundObjects($userId));
+        $this->set('lost_objects', $this->User->getLostObjects($userId));
     }
 
     public function add()
