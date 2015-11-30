@@ -3,11 +3,29 @@ App::uses('AppController', 'Controller');
 
 class UsersController extends AppController
 {
-	public function beforeFilter()
-	{
-		parent::beforeFilter();
-		$this->Auth->allow('add');
-	}
+    public function beforeFilter()
+    {
+        parent::beforeFilter();
+        $this->Auth->allow('add', 'login');
+    }
+
+    public function login()
+    {
+        if ($this->request->is('post')) {
+            if ($this->Auth->login()) {
+                return $this->redirect($this->Auth->redirectUrl());
+            }
+
+            $this->Flash->error(__('Invalid username or password, try again'), array('key' => 'error'));
+        }
+
+        $this->set('title', 'Sign In');
+    }
+
+    public function logout()
+    {
+        return $this->redirect($this->Auth->logout());
+    }
 
     public function view($id = null)
     {
@@ -33,7 +51,7 @@ class UsersController extends AppController
             $this->set('errors', $this->User->validationErrors);
         }
 
-    	$this->set('title', 'Sign Up');
+        $this->set('title', 'Sign Up');
     }
 
     public function edit($id = null)
