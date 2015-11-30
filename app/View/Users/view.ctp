@@ -1,10 +1,7 @@
 <div class="row clearfix well">
     <div class="col-md-8 column">
         <blockquote>
-            <p><?php echo $this->Session->read('Auth.User.full_name') ?></p>
-            <small>Info</small>
-            <small>Random Info</small>
-            <small>blah blah blahn</small>
+            <p><?php echo $user['User']['full_name']; ?></p>
         </blockquote>
     </div>
     <?php if ($this->request->params['userId'] != $this->Session->read('Auth.User.id')): ?>
@@ -15,6 +12,4 @@
     </div>
     <?php endif; ?>
 </div>
-<?php if ($this->request->params['userId'] == $this->Session->read('Auth.User.id')): ?>
-    <?php echo $this->element('lost-and-found'); ?>
-<?php endif; ?>
+<?php echo $this->element('lost-and-found'); ?>

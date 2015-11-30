@@ -6,7 +6,7 @@ class UsersController extends AppController
     public function beforeFilter()
     {
         parent::beforeFilter();
-        $this->Auth->allow('add', 'login');
+        $this->Auth->allow('add', 'login', 'view');
     }
 
     public function login()
