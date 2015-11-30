@@ -61,7 +61,9 @@ class User extends AppModel
 
     public function beforeValidate($options = array())
     {
-        $this->data[$this->alias]['role'] = 'user';
+        if (!isset($this->data[$this->alias]['role'])) {
+            $this->data[$this->alias]['role'] = 'user';
+        }
     }
 
     public function beforeSave($options = array())
