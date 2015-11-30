@@ -26,7 +26,7 @@ echo $this->Html->script('add-objects');
         <div class="form-group">
             <label for="objectDescription" class="col-sm-2 control-label">Description:</label>
             <div class="col-sm-6">
-                <textarea class="form-control" id="objectDescription" name="data[Objects][description]"><?php if (isset($this->data['Objects']['name'])) echo $this->data['Objects']['name']; ?></textarea>
+                <textarea class="form-control" id="objectDescription" name="data[Objects][description]"><?php if (isset($this->data['Objects']['description'])) echo $this->data['Objects']['description']; ?></textarea>
             </div>
         </div>
         <div class="form-group">

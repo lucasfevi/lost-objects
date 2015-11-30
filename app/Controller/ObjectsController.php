@@ -40,6 +40,7 @@ class ObjectsController extends AppController
             $this->request->data = $this->Objects->findById($id);
         }
 
+        $this->set('categories', $this->Objects->getCategories());
 		$this->set('title', 'Edit object');
     }
 }
