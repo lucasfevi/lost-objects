@@ -16,7 +16,7 @@ echo $this->Html->script('search-objects');
                         <a href="#" class="object-name" data-lat="<?php echo $object['Objects']['latitude']; ?>" data-lng="<?php echo $object['Objects']['longitude']; ?>"><?php echo $object['Objects']['name']; ?></a>
                     </h4>
                 </div>
-                <p><?php echo $object['Objects']['description']; ?></p>
+                <p><?php echo nl2br($object['Objects']['description']); ?></p>
                 <button type="button" class="btn btn-default">
                     <span class="glyphicon glyphicon-comment" aria-hidden="true"></span> Message
                 </button>
