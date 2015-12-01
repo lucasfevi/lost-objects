@@ -35,13 +35,19 @@
                 </button>
                 <a class="navbar-brand" href="<?php echo $this->Html->url(array('controller' => 'pages', 'action' => 'home')); ?>" style="color: #006dcc;">Lost Objects</a>
             </div>
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <form class="navbar-form navbar-left" role="search">
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Search">
-                    </div>
-                    <button type="submit" class="btn btn-default">Submit</button>
-                </form>
+            <div class="collapse navbar-collapse" id="navbar">
+                <div class="col-sm-2 col-md-2">
+                    <form action="<?php echo $this->Html->url(array('controller' => 'objects', 'action' => 'search')); ?>" class="navbar-form navbar-left" role="search" method="post">
+                        <div class="form-group">
+                            <div class="input-group">
+                                <input type="text" class="form-control" name="q" placeholder="Search for object">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-search"></span></button>
+                                </span>
+                            </div>
+                        </div>
+                    </form>
+                </div>
                 <?php echo $this->element('profile-navbar'); ?>
             </div>
         </div>

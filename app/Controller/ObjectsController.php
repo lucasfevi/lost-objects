@@ -5,6 +5,12 @@ class ObjectsController extends AppController
 {
 	public $uses = array('Objects');
 
+    public function beforeFilter()
+    {
+        parent::beforeFilter();
+        $this->Auth->allow('search');
+    }
+
 	public function add()
 	{
 		if ($this->request->is('post')) {
@@ -55,5 +61,11 @@ class ObjectsController extends AppController
         $this->Objects->delete();
 
         return $this->redirect(array('controller' => 'users', 'action' => 'view', 'userId' => CakeSession::read('Auth.User.id')));
+    }
+
+    public function search()
+    {
+        $this->set('objects', $this->Objects->getObjects($this->request->data['q']));
+        $this->set('title', 'Results');
     }
 }

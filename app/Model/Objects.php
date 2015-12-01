@@ -55,4 +55,16 @@ class Objects extends AppModel
     {
     	return $this->Category->find('list');
     }
+
+    public function getObjects($searchTerm = null)
+    {
+        return $this->find('all', array(
+            'conditions' => array(
+                'OR' => array(
+                    array('Objects.name LIKE' => '%' . $searchTerm . '%'),
+                    array('Objects.description' => '%' . $searchTerm . '%')
+                )
+            )
+        ));
+    }
 }

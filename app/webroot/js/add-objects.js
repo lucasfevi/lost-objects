@@ -1,12 +1,12 @@
 function initMap() {
-  var normalIllinois = { lat: parseFloat(document.getElementById('lat').value), lng: parseFloat(document.getElementById('lng').value) };
+  var position = { lat: parseFloat(document.getElementById('lat').value), lng: parseFloat(document.getElementById('lng').value) };
   var geocoder = new google.maps.Geocoder();
   var map = new google.maps.Map(document.getElementById('map'), {
     zoom: 15,
-    center: normalIllinois
+    center: position
   });
   var marker = new google.maps.Marker({
-    position: normalIllinois,
+    position: position,
     map: map
   });
 
