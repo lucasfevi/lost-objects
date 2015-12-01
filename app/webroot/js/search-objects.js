@@ -21,7 +21,7 @@ $(document).ready(function()
     }
   });
 
-  $('.object-name').on('click', function(e)
+  $('.btn-location').on('click', function(e)
   {
     e.preventDefault();
     var data = $(this).data();
