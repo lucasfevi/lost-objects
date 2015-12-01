@@ -11,6 +11,9 @@
             <li>
                 <a href="<?php echo $this->Html->url(array('controller' => 'messages', 'action' => 'view')); ?>">Messages</a>
             </li>
+            <li>
+                <a href="<?php echo $this->Html->url(array('controller' => 'objects', 'action' => 'add')); ?>">Add Object</a>
+            </li>
             <li role="separator" class="divider"></li>
             <li>
                 <a href="<?php echo $this->Html->url(array('controller' => 'users', 'action' => 'logout')); ?>">Logout</a>
