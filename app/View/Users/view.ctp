@@ -4,7 +4,7 @@
             <p><?php echo $user['User']['full_name']; ?></p>
         </blockquote>
     </div>
-    <?php if ($this->request->params['userId'] != $this->Session->read('Auth.User.id')): ?>
+    <?php if ($this->Session->read('Auth.User') && $this->request->params['userId'] != $this->Session->read('Auth.User.id')): ?>
     <div class="col-md-2 column">
         <button type="button" class="btn btn-default" data-toggle="modal" data-target="#exampleModal" data-whatever="First and Last Name">
             <span class="glyphicon glyphicon-comment" aria-hidden="true"></span> Message

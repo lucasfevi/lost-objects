@@ -17,9 +17,11 @@ echo $this->Html->script('search-objects');
                     </h4>
                 </div>
                 <p><?php echo nl2br($object['Objects']['description']); ?></p>
+                <?php if ($this->Session->read('Auth.User')): ?>
                 <button type="button" class="btn btn-default">
                     <span class="glyphicon glyphicon-comment" aria-hidden="true"></span> Message
                 </button>
+                <?php endif; ?>
             </div>
         </div>
 
