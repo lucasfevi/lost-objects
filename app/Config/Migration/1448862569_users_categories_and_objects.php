@@ -89,17 +89,29 @@ class UsersCategoriesAndObjects extends CakeMigration {
     public function after($direction) {
         $User = ClassRegistry::init('User');
         $Category = ClassRegistry::init('Category');
+        $Objects = ClassRegistry::init('Objects');
 
         if ($direction === 'up') {
-            // Create an admin user
-            $data['User']['first_name'] = 'Lucas';
-            $data['User']['last_name'] = 'Vieira';
-            $data['User']['email'] = 'newlucasfevi@gmail.com';
-            $data['User']['password'] = 'lostobj123';
-            $data['User']['role'] = 'admin';
+            // Create 2 users
+            $data = array(
+                array(
+                    'first_name' => 'Lucas',
+                    'last_name'  => 'Vieira',
+                    'email'      => 'newlucasfevi@gmail.com',
+                    'password'   => 'lost123',
+                    'role'       => 'admin'
+                ),
+                array(
+                    'first_name' => 'User',
+                    'last_name'  => 'Test',
+                    'email'      => 'ldacruz@ilstu.edu',
+                    'password'   => 'lost123',
+                    'role'       => 'user'
+                )
+            );
             $User->create();
             if ($User->saveAll($data)) {
-                $this->callback->out('admin user created');
+                $this->callback->out('users created');
             }
 
             // Populates categories table
@@ -114,8 +126,47 @@ class UsersCategoriesAndObjects extends CakeMigration {
                 array('name' => 'Other'),
             );
             $Category->create();
-            if ($Category->saveMany($data)) {
+            if ($Category->saveAll($data)) {
                 $this->callback->out('categories table populated');
+            }
+
+            // Populates objects table
+            $data = array(
+                array(
+                    'name'        => 'iPhone 6s',
+                    'description' => 'Lost him in Rec center',
+                    'type'        => 'lost',
+                    'status'      => 'searching',
+                    'latitude'    => '40.5078608927256',
+                    'longitude'   => '-88.99402141571045',
+                    'user_id'     => 1,
+                    'category_id' => 1
+                ),
+                array(
+                    'name'        => 'Wallet',
+                    'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec at molestie erat. Mauris interdum lacus tortor, gravida tempus nunc commodo vitae. Aenean fermentum velit dui, sed laoreet mauris pellentesque dignissim. Nullam vitae ultricies lacus, non hendrerit ante. Sed ut odio urna. Maecenas sodales, lacus a scelerisque tempor, tellus ipsum sollicitudin justo, ut consequat justo leo convallis risus. Morbi blandit ipsum ante, ut venenatis libero ultrices lacinia.',
+                    'type'        => 'lost',
+                    'status'      => 'searching',
+                    'latitude'    => '42.5078608927256',
+                    'longitude'   => '-88.99402141571045',
+                    'user_id'     => 1,
+                    'category_id' => 1
+                ),
+                array(
+                    'name'        => 'My Dog',
+                    'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec at molestie erat. Mauris interdum lacus tortor, gravida tempus nunc commodo vitae. Aenean fermentum velit dui, sed laoreet mauris pellentesque dignissim. Nullam vitae ultricies lacus, non hendrerit ante. Sed ut odio urna. Maecenas sodales, lacus a scelerisque tempor, tellus ipsum sollicitudin justo, ut consequat justo leo convallis risus. Morbi blandit ipsum ante, ut venenatis libero ultrices lacinia.',
+                    'type'        => 'lost',
+                    'status'      => 'searching',
+                    'latitude'    => '42.5078608927256',
+                    'longitude'   => '-88.99402141571045',
+                    'user_id'     => 1,
+                    'category_id' => 8
+                )
+            );
+
+            $Objects->create();
+            if ($Objects->saveAll($data)) {
+                $this->callback->out('objects table populated');
             }
         }
 
