@@ -37,11 +37,11 @@ echo $this->Html->script('search-objects');
                             <span class="glyphicon glyphicon-globe" aria-hidden="true"></span> Location
                         </button>
 
-                        <?php if ($this->Session->read('Auth.User')): ?>
+                        <?php if ($this->Session->read('Auth.User') && $this->Session->read('Auth.User.id') != $object['Objects']['user_id']): ?>
 
-                        <button type="button" class="btn btn-default">
+                        <a href="<?php echo $this->Html->url(array('controller' => 'messages', 'action' => 'send', 'objectId' => $object['Objects']['id'])); ?>" class="btn btn-default">
                             <span class="glyphicon glyphicon-comment" aria-hidden="true"></span> Message
-                        </button>
+                        </a>
 
                         <?php endif; ?>
 

@@ -5,6 +5,7 @@ class AppController extends Controller
 {
     public $components = array(
         'Flash',
+        'Session',
         'Auth' => array(
             'logoutRedirect' => array(
                 'controller' => 'pages',

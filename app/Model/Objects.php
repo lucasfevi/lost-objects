@@ -67,4 +67,26 @@ class Objects extends AppModel
             )
         ));
     }
+
+    public function getUserAndObjectInfo($objectId = null)
+    {
+        $object = $this->find('first', array(
+            'conditions' => array(
+                'Objects.id' => $objectId
+            ),
+            'recursive' => 0
+        ));
+
+        return array(
+            'objectName' => $object['Objects']['name'],
+            'userName'   => $object['User']['full_name']
+        );
+    }
+
+    public function getUserId($objectId)
+    {
+        $object = $this->findById($objectId);
+
+        return $object['Objects']['id'];
+    }
 }
