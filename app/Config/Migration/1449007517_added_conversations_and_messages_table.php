@@ -31,12 +31,12 @@ class AddedConversationsAndMessagesTable extends CakeMigration {
 					'id' => array('type' => 'integer', 'null' => false, 'default' => null, 'unsigned' => false, 'key' => 'primary'),
 					'message' => array('type' => 'text', 'null' => false, 'default' => null, 'collate' => 'utf8_general_ci', 'charset' => 'utf8'),
 					'conversation_id' => array('type' => 'integer', 'null' => false, 'default' => null, 'unsigned' => false, 'key' => 'index'),
-					'users_id' => array('type' => 'integer', 'null' => false, 'default' => null, 'unsigned' => false, 'key' => 'index'),
+					'user_id' => array('type' => 'integer', 'null' => false, 'default' => null, 'unsigned' => false, 'key' => 'index'),
 					'created' => array('type' => 'datetime', 'null' => false, 'default' => null),
 					'indexes' => array(
 						'PRIMARY' => array('column' => 'id', 'unique' => 1),
 						'fk_messages_conversations1_idx' => array('column' => 'conversation_id', 'unique' => 0),
-						'fk_messages_users1_idx' => array('column' => 'users_id', 'unique' => 0),
+						'fk_messages_users1_idx' => array('column' => 'user_id', 'unique' => 0),
 					),
 					'tableParameters' => array('charset' => 'utf8', 'collate' => 'utf8_general_ci', 'engine' => 'InnoDB'),
 				),
@@ -44,7 +44,7 @@ class AddedConversationsAndMessagesTable extends CakeMigration {
 		),
 		'down' => array(
 			'drop_table' => array(
-				'conversations', 'messages'
+				'messages', 'conversations'
 			),
 		),
 	);
