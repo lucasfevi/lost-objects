@@ -18,8 +18,8 @@ class AddedConversationsAndMessagesTable extends CakeMigration {
 			'create_table' => array(
 				'conversations' => array(
 					'id' => array('type' => 'integer', 'null' => false, 'default' => null, 'unsigned' => false, 'key' => 'primary'),
-					'sender_id' => array('type' => 'integer', 'null' => false, 'default' => null, 'unsigned' => false),
-					'receiver_id' => array('type' => 'integer', 'null' => false, 'default' => null, 'unsigned' => false),
+					'user_1_id' => array('type' => 'integer', 'null' => false, 'default' => null, 'unsigned' => false),
+					'user_2_id' => array('type' => 'integer', 'null' => false, 'default' => null, 'unsigned' => false),
 					'object_id' => array('type' => 'integer', 'null' => false, 'default' => null, 'unsigned' => false, 'key' => 'index'),
 					'indexes' => array(
 						'PRIMARY' => array('column' => 'id', 'unique' => 1),
