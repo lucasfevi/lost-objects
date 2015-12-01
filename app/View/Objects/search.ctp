@@ -5,21 +5,25 @@ echo $this->Html->script('search-objects');
 <div class="row">
     <legend>Search Results</legend>
     <div class="col-sm-8">
-        <?php for ($i = 0; $i < 15; $i++): ?>
+        <?php if (empty($objects)): ?>
+        <p>No objects found with your search criteria.</p>
+        <?php else: ?>
+        <?php foreach ($objects as $key => $object): ?>
         <div class="panel panel-default">
             <div class="panel-heading">
                 <div class="media-body">
-                    <h4 class="media-heading"><a href="#">Object Post Title</a></h4>
+                    <h4 class="media-heading"><a href="#"><?php echo $object['Objects']['name']; ?></a></h4>
                 </div>
-                <p>post description. blah blah blah blah blah blah  blah blah blah blah blah blah blah blah blah blah blah blah blah blah</p>
+                <p><?php echo $object['Objects']['description']; ?></p>
                 <button type="button" class="btn btn-default">
-                    <span class="glyphicon glyphicon-comment" aria-hidden="true" ></span> Message
+                    <span class="glyphicon glyphicon-comment" aria-hidden="true"></span> Message
                 </button>
             </div>
         </div>
 
         <hr>
-        <?php endfor; ?>
+        <?php endforeach; ?>
+        <?php endif; ?>
     </div>
     <div class="col-sm-4">
         <div id="searchMap"></div>
