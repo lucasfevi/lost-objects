@@ -40,7 +40,7 @@
                     <form action="<?php echo $this->Html->url(array('controller' => 'objects', 'action' => 'search')); ?>" class="navbar-form navbar-left" role="search" method="post">
                         <div class="form-group">
                             <div class="input-group">
-                                <input type="text" class="form-control" name="q" placeholder="Search for object">
+                                <input type="text" class="form-control" name="q" placeholder="Search for object" value="<?php if (isset($this->data['q'])) echo $this->data['q']; ?>">
                                 <span class="input-group-btn">
                                     <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-search"></span></button>
                                 </span>
