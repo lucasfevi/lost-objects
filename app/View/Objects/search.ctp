@@ -12,7 +12,9 @@ echo $this->Html->script('search-objects');
         <div class="panel panel-default">
             <div class="panel-heading">
                 <div class="media-body">
-                    <h4 class="media-heading"><a href="#"><?php echo $object['Objects']['name']; ?></a></h4>
+                    <h4 class="media-heading">
+                        <a href="#" class="object-name" data-lat="<?php echo $object['Objects']['latitude']; ?>" data-lng="<?php echo $object['Objects']['longitude']; ?>"><?php echo $object['Objects']['name']; ?></a>
+                    </h4>
                 </div>
                 <p><?php echo $object['Objects']['description']; ?></p>
                 <button type="button" class="btn btn-default">
