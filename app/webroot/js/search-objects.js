@@ -21,8 +21,9 @@ $(document).ready(function()
     }
   });
 
-  $('.object-name').on('click', function()
+  $('.object-name').on('click', function(e)
   {
+    e.preventDefault();
     var data = $(this).data();
 
     if (marker == null) {
