@@ -28,8 +28,6 @@
 
 	Router::connect('/user/:userId', array('controller' => 'users', 'action' => 'view'), array('pass' => array('userId')));
 
-	Router::connect('/message/:objectId', array('controller' => 'messages', 'action' => 'send'), array('pass' => array('objectId')));
-
 /**
  * Load all plugin routes. See the CakePlugin documentation on
  * how to customize the loading of plugin routes.
