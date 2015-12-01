@@ -39,7 +39,7 @@ echo $this->Html->script('search-objects');
 
                         <?php if ($this->Session->read('Auth.User') && $this->Session->read('Auth.User.id') != $object['Objects']['user_id']): ?>
 
-                        <a href="<?php echo $this->Html->url(array('controller' => 'messages', 'action' => 'send', 'objectId' => $object['Objects']['id'])); ?>" class="btn btn-default">
+                        <a href="<?php echo $this->Html->url(array('controller' => 'conversations', 'action' => 'create', $object['Objects']['id'])); ?>" class="btn btn-default">
                             <span class="glyphicon glyphicon-comment" aria-hidden="true"></span> Message
                         </a>
 
