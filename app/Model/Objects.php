@@ -62,7 +62,7 @@ class Objects extends AppModel
             'conditions' => array(
                 'OR' => array(
                     array('Objects.name LIKE' => '%' . $searchTerm . '%'),
-                    array('Objects.description' => '%' . $searchTerm . '%')
+                    array('Objects.description LIKE' => '%' . $searchTerm . '%')
                 )
             )
         ));
