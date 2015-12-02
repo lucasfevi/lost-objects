@@ -12,10 +12,10 @@ class ConversationsController extends AppController
         if ($this->request->is('post')) {
             $this->Conversation->create();
 
-            $this->request->data['Conversation']['object_id']   = $objectId;
+            $this->request->data['Conversation']['object_id'] = $objectId;
             $this->request->data['Conversation']['user_1_id'] = $this->Conversation->Objects->getUserId($objectId);
-            $this->request->data['Conversation']['user_2_id']   = $this->Session->read('Auth.User.id');
-            $this->request->data['Message'][0]['user_id']       = $this->Session->read('Auth.User.id');
+            $this->request->data['Conversation']['user_2_id'] = $this->Session->read('Auth.User.id');
+            $this->request->data['Message'][0]['user_id']     = $this->Session->read('Auth.User.id');
 
             if ($this->Conversation->saveAll($this->request->data)) {
                 return $this->redirect(array('action' => 'view'));
