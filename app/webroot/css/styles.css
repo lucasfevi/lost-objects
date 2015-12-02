@@ -5,3 +5,8 @@ body { padding-top: 70px; }
 #searchMap { height: 300px; }
 
 .fixed-map { position: fixed!important; width: 360px; top: 70px; right: 70px; }
+
+#conversationNames { overflow-y: scroll; max-height: 600px; }
+#conversationMessages .well { overflow-y: scroll; max-height: 600px; padding-bottom: 50px; }
+#conversationMessages .well p.text-left { padding-right: 70px; }
+#conversationMessages .well p.text-right { padding-left: 70px; }
