@@ -6,6 +6,8 @@
 </div>
 
 <div class="container">
+
+    <?php if (!$this->Session->read('Auth.User')): ?>
     <div class="row">
         <div class="col-md-6">
             <h2>Sign In</h2>
@@ -18,6 +20,7 @@
             <p><a class="btn btn-success" href="<?php echo $this->Html->url(array('controller' => 'users', 'action' => 'add')); ?>" role="button">Sign Up &raquo;</a></p>
         </div>
     </div>
+    <?php endif; ?>
 
     <hr>
 </div>
