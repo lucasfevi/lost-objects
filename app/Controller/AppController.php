@@ -11,6 +11,10 @@ class AppController extends Controller
                 'controller' => 'pages',
                 'action' => 'home'
             ),
+            'loginRedirect' => array(
+                'controller' => 'users',
+                'action' => 'profile'
+            ),
             'authenticate' => array(
                 'Form' => array(
                     'fields' => array('username' => 'email'),

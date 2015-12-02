@@ -1,10 +1,8 @@
 <div class="row clearfix">
     <div class="col-md-12">
-    <?php if ($this->request->params['userId'] == $this->Session->read('Auth.User.id')): ?>
         <div class="col-md-3">
             <a href="<?php echo $this->Html->url(array('controller' => 'objects', 'action' => 'add')); ?>" class="btn btn-primary btn-block" type="button">Add Object</a>
         </div>
-    <?php endif; ?>
         <div>
             <ul class="nav nav-tabs">
                 <li class="active">
@@ -22,9 +20,7 @@
                                 <?php foreach ($lost_objects as $key => $object): ?>
                                 <p>
                                     <strong><?php echo $object['Objects']['name']; ?></strong>
-                                    <?php if ($this->request->params['userId'] == $this->Session->read('Auth.User.id')): ?>
                                     <a href="<?php echo $this->Html->url(array('controller' => 'objects', 'action' => 'edit', $object['Objects']['id'])); ?>"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
-                                    <?php endif; ?>
                                     <br/>
                                     <?php echo mb_strimwidth($object['Objects']['description'], 0, 200, '...'); ?>
                                 </p>

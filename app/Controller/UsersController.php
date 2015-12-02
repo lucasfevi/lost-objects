@@ -27,17 +27,11 @@ class UsersController extends AppController
         return $this->redirect($this->Auth->logout());
     }
 
-    public function view($userId = null)
+    public function profile()
     {
-        $this->User->id = $userId;
-
-        if (!$this->User->exists()) {
-            throw new NotFoundException(__('Invalid user'));
-        }
-
-        $this->set('user', $this->User->findById($userId));
-        $this->set('found_objects', $this->User->getFoundObjects($userId));
-        $this->set('lost_objects', $this->User->getLostObjects($userId));
+        $this->set('user', $this->User->findById($this->Session->read('Auth.User.id')));
+        $this->set('found_objects', $this->User->getFoundObjects($this->Session->read('Auth.User.id')));
+        $this->set('lost_objects', $this->User->getLostObjects($this->Session->read('Auth.User.id')));
     }
 
     public function add()
@@ -54,45 +48,5 @@ class UsersController extends AppController
         }
 
         $this->set('title', 'Sign Up');
-    }
-
-    public function edit($id = null)
-    {
-        $this->User->id = $id;
-
-        if (!$this->User->exists()) {
-            throw new NotFoundException(__('Invalid user'));
-        }
-
-        if ($this->request->is('post') || $this->request->is('put')) {
-            if ($this->User->save($this->request->data)) {
-                $this->Flash->success(__('The user has been saved'));
-                return $this->redirect(array('action' => 'index'));
-            }
-
-            $this->Flash->error(__('The user could not be saved. Please, try again.'));
-        } else {
-            $this->request->data = $this->User->findById($id);
-            unset($this->request->data['User']['password']);
-        }
-    }
-
-    public function delete($id = null)
-    {
-        $this->request->allowMethod('post');
-
-        $this->User->id = $id;
-
-        if (!$this->User->exists()) {
-            throw new NotFoundException(__('Invalid user'));
-        }
-
-        if ($this->User->delete()) {
-            $this->Flash->success(__('User deleted'));
-            return $this->redirect(array('action' => 'index'));
-        }
-
-        $this->Flash->error(__('User was not deleted'));
-        return $this->redirect(array('action' => 'index'));
     }
 }

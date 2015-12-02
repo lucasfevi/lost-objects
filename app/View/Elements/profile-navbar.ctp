@@ -6,7 +6,7 @@
         </a>
         <ul class="dropdown-menu">
             <li>
-                <a href="<?php echo $this->Html->url(array('controller' => 'users', 'action' => 'view', 'userId' => $this->Session->read('Auth.User.id'))); ?>">My Profile</a>
+                <a href="<?php echo $this->Html->url(array('controller' => 'users', 'action' => 'profile')); ?>">My Profile</a>
             </li>
             <li>
                 <a href="<?php echo $this->Html->url(array('controller' => 'conversations', 'action' => 'view')); ?>">Messages</a>
