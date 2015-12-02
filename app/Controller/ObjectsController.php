@@ -17,7 +17,7 @@ class ObjectsController extends AppController
             $this->Objects->create();
 
             if ($this->Objects->save($this->request->data)) {
-                return $this->redirect(array('controller' => 'users', 'action' => 'view', 'userId' => CakeSession::read('Auth.User.id')));
+                return $this->redirect(array('controller' => 'users', 'action' => 'profile'));
             }
 
             $this->set('errors', $this->Objects->validationErrors);
@@ -37,7 +37,7 @@ class ObjectsController extends AppController
 
         if ($this->request->is('post') || $this->request->is('put')) {
             if ($this->Objects->save($this->request->data)) {
-                return $this->redirect(array('controller' => 'users', 'action' => 'view', 'userId' => CakeSession::read('Auth.User.id')));
+                return $this->redirect(array('controller' => 'users', 'action' => 'profile'));
             }
 
             $this->set('errors', $this->Objects->validationErrors);
@@ -59,7 +59,7 @@ class ObjectsController extends AppController
 
         $this->Objects->delete();
 
-        return $this->redirect(array('controller' => 'users', 'action' => 'view', 'userId' => CakeSession::read('Auth.User.id')));
+        return $this->redirect(array('controller' => 'users', 'action' => 'profile'));
     }
 
     public function search()
