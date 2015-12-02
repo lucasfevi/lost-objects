@@ -22,6 +22,11 @@ echo $this->Html->script('search-objects');
                         <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse<?php echo $object['Objects']['id']; ?>" aria-expanded="true" aria-controls="collapse<?php echo $object['Objects']['id']; ?>">
                             <?php echo $object['Objects']['name']; ?>
                         </a>
+                        <?php if ($object['Objects']['type'] == 'lost'): ?>
+                        <span class="label label-danger pull-right">Lost</span>
+                        <?php else: ?>
+                        <span class="label label-info pull-right">Found</span>
+                        <?php endif; ?>
                     </h4>
 
                 </div>
