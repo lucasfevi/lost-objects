@@ -1,5 +1,4 @@
 <?php
-echo $this->Html->script('http://code.jquery.com/jquery-1.11.3.min.js');
 echo $this->Html->script('search-objects');
 ?>
 <div class="row">
