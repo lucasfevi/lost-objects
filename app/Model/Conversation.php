@@ -18,7 +18,9 @@ class Conversation extends AppModel
 	);
 
 	public $hasMany = array(
-		'Message'
+		'Message' => array(
+			'order' => 'Message.id DESC',
+		)
 	);
 
 	public function objectExists($objectId = null)

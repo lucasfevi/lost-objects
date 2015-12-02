@@ -29,10 +29,26 @@ class ConversationsController extends AppController
 
     public function view()
     {
-        // print('<pre>');
-        // print_r($this->Conversation->getConversations($this->Session->read('Auth.User.id')));
-        // print('</pre>'); die;
         $this->set('conversations', $this->Conversation->getConversations($this->Session->read('Auth.User.id')));
         $this->set('title', 'Messages');
+    }
+
+    public function send()
+    {
+        $this->autoRender = false;
+
+        $this->Conversation->Message->create();
+
+        if ($this->Conversation->Message->save($this->request->data)) {
+            return json_encode(array(
+                'status'  => 'success',
+                'message' => $this->request->data['Message']['message']
+            ));
+        }
+
+        return json_encode(array(
+            'status'  => 'error',
+            'message' => null
+        ));
     }
 }
