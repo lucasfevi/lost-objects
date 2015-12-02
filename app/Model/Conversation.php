@@ -19,7 +19,7 @@ class Conversation extends AppModel
 
 	public $hasMany = array(
 		'Message' => array(
-			'order' => 'Message.id DESC',
+			'order' => 'Message.id ASC',
 		)
 	);
 

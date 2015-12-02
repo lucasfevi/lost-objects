@@ -25,7 +25,7 @@ function sendMessage(e)
 			return;
 		}
 
-		$(dis).parent().prepend('<p tabindex="10" class="text-right">' + response.message + '</p>');
+		$('<p tabindex="10" class="text-right">' + response.message + '</p>').insertBefore(dis);
 		$(dis).find('.message').val('');
 	}, 'json');
 }
