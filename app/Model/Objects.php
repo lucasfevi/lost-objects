@@ -91,6 +91,6 @@ class Objects extends AppModel
     {
         $object = $this->findById($objectId);
 
-        return $object['Objects']['id'];
+        return $object['Objects']['user_id'];
     }
 }
