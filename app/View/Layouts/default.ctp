@@ -12,11 +12,11 @@
     <?php
         echo $this->Html->meta('icon');
 
-        echo $this->Html->css('http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css');
+        echo $this->Html->css('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css');
         echo $this->Html->css('styles.css');
 
-        echo $this->Html->script('http://code.jquery.com/jquery-1.10.2.min.js');
-        echo $this->Html->script('http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js');
+        echo $this->Html->script('http://code.jquery.com/jquery-1.11.3.min.js');
+        echo $this->Html->script('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js');
 
         echo $this->fetch('meta');
         echo $this->fetch('css');
