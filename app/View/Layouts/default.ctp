@@ -13,10 +13,11 @@
         echo $this->Html->meta('icon');
 
         echo $this->Html->css('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css');
-        echo $this->Html->css('styles.css');
+        echo $this->Html->css('styles');
 
         echo $this->Html->script('http://code.jquery.com/jquery-1.11.3.min.js');
         echo $this->Html->script('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js');
+        echo $this->Html->script('search');
 
         echo $this->fetch('meta');
         echo $this->fetch('css');
@@ -37,10 +38,28 @@
             </div>
             <div class="collapse navbar-collapse" id="navbar">
                 <div class="col-sm-4 col-md-4">
-                    <form style="width: 100%;" action="<?php echo $this->Html->url(array('controller' => 'objects', 'action' => 'search')); ?>" class="navbar-form navbar-left" role="search" method="post">
-                        <div class="form-group" style="width: 100%;">
-                            <input style="width: 100%;" type="text" class="form-control" name="q" placeholder="Search for object" value="<?php if (isset($this->data['q'])) echo $this->data['q']; ?>">
+                    <form action="<?php echo $this->Html->url(array('controller' => 'objects', 'action' => 'search')); ?>" class="navbar-form navbar-left" role="search" method="post">
+                        <div class="input-group">
+                            <div class="input-group-btn" id="typeFilter">
+                                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <?php if (!isset($this->data['filter']) || $this->data['filter'] == 'all'): ?>
+                                    <span id="filterName">All Objects</span>
+                                    <?php elseif ($this->data['filter'] == 'lost'): ?>
+                                    <span id="filterName">Lost Objects</span>
+                                    <?php elseif ($this->data['filter'] == 'found'): ?>
+                                    <span id="filterName">Found Objects</span>
+                                    <?php endif; ?>
+                                    <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu dropdown-menu-left">
+                                    <li><a href="#" class="filter-choice" data-filter="all">All Objects</a></li>
+                                    <li><a href="#" class="filter-choice" data-filter="lost">Lost Objects</a></li>
+                                    <li><a href="#" class="filter-choice" data-filter="found">Found Objects</a></li>
+                                </ul>
+                            </div>
+                            <input type="text" class="form-control" name="q" placeholder="Search for object" value="<?php if (isset($this->data['q'])) echo $this->data['q']; ?>">
                         </div>
+                        <input type="hidden" id="filter" name="filter" value="<?php echo (isset($this->data['filter'])) ? $this->data['filter'] : 'all'; ?>">
                     </form>
                 </div>
                 <?php echo $this->element('profile-navbar'); ?>

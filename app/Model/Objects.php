@@ -56,16 +56,20 @@ class Objects extends AppModel
     	return $this->Category->find('list');
     }
 
-    public function getObjects($searchTerm = null)
+    public function getObjects($data = array())
     {
-        return $this->find('all', array(
-            'conditions' => array(
-                'OR' => array(
-                    array('Objects.name LIKE' => '%' . $searchTerm . '%'),
-                    array('Objects.description LIKE' => '%' . $searchTerm . '%')
-                )
+        $options['conditions'] = array(
+            'OR' => array(
+                array('Objects.name LIKE' => '%' . $data['q'] . '%'),
+                array('Objects.description LIKE' => '%' . $data['q'] . '%')
             )
-        ));
+        );
+
+        if ($data['filter'] != 'all') {
+            $options['conditions']['Objects.type'] = $data['filter'];
+        }
+
+        return $this->find('all', $options);
     }
 
     public function getUserAndObjectInfo($objectId = null)

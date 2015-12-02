@@ -64,11 +64,11 @@ class ObjectsController extends AppController
 
     public function search()
     {
-        if (!isset($this->request->data['q'])) {
+        if (!$this->request->is('post')) {
             return $this->redirect(array('controller' => 'pages', 'action' => 'home'));
         }
 
-        $this->set('objects', $this->Objects->getObjects($this->request->data['q']));
+        $this->set('objects', $this->Objects->getObjects($this->request->data));
         $this->set('title', 'Results');
     }
 }
