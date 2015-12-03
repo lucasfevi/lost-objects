@@ -67,4 +67,4 @@ echo $this->Html->script('search-objects');
         <div id="searchMap"></div>
     </div>
 </div>
-<script src="https://maps.googleapis.com/maps/api/js?signed_in=true&callback=initMap" async defer></script>
+<script src="https://maps.googleapis.com/maps/api/js?callback=initMap" async defer></script>
