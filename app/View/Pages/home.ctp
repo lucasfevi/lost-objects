@@ -5,6 +5,8 @@
     </div>
 </div>
 
+<hr>
+
 <div class="container">
 
     <?php if (!$this->Session->read('Auth.User')): ?>
@@ -22,5 +24,4 @@
     </div>
     <?php endif; ?>
 
-    <hr>
 </div>
