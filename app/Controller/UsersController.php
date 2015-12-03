@@ -40,8 +40,7 @@ class UsersController extends AppController
             $this->User->create();
 
             if ($this->User->save($this->request->data)) {
-                $this->Flash->success(__('Your account has been created'), array('key' => 'success'));
-                return $this->redirect(array('action' => 'add'));
+                return $this->redirect(array('action' => 'login'));
             }
 
             $this->set('errors', $this->User->validationErrors);
