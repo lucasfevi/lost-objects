@@ -65,6 +65,10 @@ class Objects extends AppModel
             )
         );
 
+        $options['order'] = array(
+            'Objects.created DESC'
+        );
+
         if ($data['filter'] != 'all') {
             $options['conditions']['Objects.type'] = $data['filter'];
         }
