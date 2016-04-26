@@ -41,7 +41,7 @@ class DATABASE_CONFIG
             return array(
                 'datasource' => 'Database/Mysql',
                 'persistent' => false,
-                'host' => localhost,
+                'host' => $url['host'],
                 'login' => $url['user'],
                 'password' => $url['pass'],
                 'database' => substr($url['path'], 1),
